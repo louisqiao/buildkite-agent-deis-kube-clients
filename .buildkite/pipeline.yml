@@ -1,0 +1,11 @@
+steps:
+  - command: _scripts/build.sh
+    name: "Build :docker: images"
+    agents:
+      role: builder
+
+  - wait
+  - command: _scripts/release.sh
+    name: "Push images to GCR :rocket:"
+    agents:
+      role: builder
